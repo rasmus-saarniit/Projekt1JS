@@ -1,0 +1,42 @@
+#menu-container {
+    transition: all 0.5s ease-in-out;
+}
+
+#menu-container.moving-up {
+    transform: translateY(calc(-50vh + 2rem));
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    z-index: 10;
+    forced-colors: active; /* New property */
+}
+
+#menu-container.moving-up button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    forced-color-adjust: auto; /* New property */
+}
+
+#menu-container.moving-up button.main-button {
+    font-size: 2rem; /* Increased from 1rem */
+    padding: 0.75rem 1.5rem; /* Increased padding */
+}
+
+#content {
+    margin-top: 160px;
+    padding-top: 2rem;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 5;
+}
+
+select {
+    direction: rtl; /* Ensure dropdown menu goes downwards */
+    position: absolute; /* Ensure dropdown menu goes downwards */
+}
