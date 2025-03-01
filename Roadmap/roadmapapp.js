@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let hasMovedUp = false; // flag, et tagada üleminek ainult üks kord
 
   // Andmete toomine JSON-failist
-  fetch("../projekt1_JS_saarniit_231790/roadmap/roadmaps.json") 
+  fetch("../roadmaps.json") 
     .then((response) => response.json())
     .then((data) => {
       roadData = data;
