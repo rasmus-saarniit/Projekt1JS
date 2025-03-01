@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   let roadData = {};
-  let hasMovedUp = false; // Lipp, et tagada üleminek ainult üks kord
+  let hasMovedUp = false; // flag, et tagada üleminek ainult üks kord
 
   // Andmete toomine JSON-failist
-  fetch("../roadmap/roadmaps.json")
+  fetch("../projekt1_JS_saarniit_231790/roadmap/roadmaps.json") 
     .then((response) => response.json())
     .then((data) => {
       roadData = data;
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
       showContent(category);
     }
 
-    // Peida "Developer Roadmap" pealkiri
+    // Peida  pealkiri
     mainTitle.classList.add("hidden");
 
-    // Vähenda nuppe
+    // Teenupud väiksemaks
     const buttons = document.querySelectorAll("#menu-container button");
     buttons.forEach(button => {
       button.classList.add("shrink");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll("#menu-container button");
     buttons.forEach(button => {
       button.classList.remove("text-4xl", "py-8", "px-16");
-      button.classList.add("text-sm", "py-2", "px-4"); // Tee nupud palju väiksemaks
+      button.classList.add("text-sm", "py-2", "px-4"); // Tee nupud väiksemaks
     });
 
     const content = document.getElementById("content");
@@ -62,12 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
     content.classList.remove("hidden");
     content.className = `container mx-auto mt-8 text-center ${category}`; // Rakenda kategooria-spetsiifiline klass
     const title = document.createElement("h1");
-    title.className = "text-9xl font-bold mb-24 mt-12 text-gray-800 text-center"; // Palju suurem pealkiri ja rohkem vahet
+    title.className = "text-9xl font-bold mb-24 mt-12 text-gray-800 text-center"; //suurem pealkiri ja rohkem polstrit
     title.innerText = category.charAt(0).toUpperCase() + category.slice(1);
     content.appendChild(title);
     for (const technologies in roadData[category]) {
       const categoryTitle = document.createElement("h3");
-      categoryTitle.className = "text-5xl font-bold mt-1 mb-6 text-gray-800 text-center"; // Rohkem vahet
+      categoryTitle.className = "text-5xl font-bold mt-1 mb-6 text-gray-800 text-center"; 
       categoryTitle.innerText = technologies;
       content.appendChild(categoryTitle);
       roadData[category][technologies].forEach(text => {
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         category === 'frontend' ? "bg-green-500 text-white py-2 px-4 rounded mb-4" :
                         "bg-purple-500 text-white py-2 px-4 rounded mb-4";
         card.innerText = text.name;
-        card.style.marginBottom = "2rem"; // Lisa vahe nuppude vahele
+        card.style.marginBottom = "2rem"; // Lisa polstrit nuppude vahele
         card.addEventListener("click", () => showModal(text.name, text.description, text.video_url));
         content.appendChild(card);
       });
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal-title").innerText = title;
     document.getElementById("modal-description").innerText = description;
 
-    // Muuda YouTube URL-i manustamise URL-iks
+    // Muuda tavaline url embed URL-iks
     const embedUrl = videoUrl.replace("watch?v=", "embed/");
     document.getElementById("modal-video").src = embedUrl;
 
@@ -118,30 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuContainer = document.getElementById("menu-container");
     const buttons = document.querySelectorAll("#menu-container button");
     if (st > lastScrollTop) {
-      menuContainer.style.opacity = "0"; // Hõõguta menüü välja kerimisel alla
-      buttons.forEach(button => button.classList.add("faded")); // Lisa hõõgutusklass
+      menuContainer.style.opacity = "0"; // Fadei menüü välja kerimisel alla
+      buttons.forEach(button => button.classList.add("faded")); // Lisa fade
     } else {
-      menuContainer.style.opacity = "1"; // Hõõguta menüü sisse kerimisel üles
-      buttons.forEach(button => button.classList.remove("faded")); // Eemalda hõõgutusklass
+      menuContainer.style.opacity = "1"; // fadei menüü sisse kerimisel üles
+      buttons.forEach(button => button.classList.remove("faded")); // Eemalda fade
     }
     lastScrollTop = st <= 0 ? 0 : st; // Mobiilseadmete või negatiivse kerimise jaoks
   });
-
-  const newsData = [
-    {
-        title: "Uus JavaScripti raamistik välja antud",
-        category: "Tehnoloogia",
-        description: "Uus JavaScripti raamistik on välja antud, pakkudes paremat jõudlust ja kasutusmugavust.",
-        datetime: "2025-02-25",
-        image: "https://via.placeholder.com/150"
-    },
-    {
-        title: "Kohalik spordimeeskond võitis meistrivõistlused",
-        category: "Sport",
-        description: "Kohalik spordimeeskond võitis meistrivõistlused põnevas finaalmängus.",
-        datetime: "2025-02-24",
-        image: "https://via.placeholder.com/150"
-    },
-    // Lisa siia rohkem uudiste objekte
-  ];
 });
