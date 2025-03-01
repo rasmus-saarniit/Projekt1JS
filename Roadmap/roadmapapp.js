@@ -59,21 +59,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = document.getElementById("content");
     content.innerHTML = "";
     content.classList.remove("hidden");
+    content.className = `container mx-auto mt-8 text-center ${category}`; // Apply category-specific class
     const title = document.createElement("h1");
     title.className = "text-9xl font-bold mb-24 mt-12 text-gray-800 text-center"; // Much bigger title and more spacing
-    title.innerText = category;
+    title.innerText = category.charAt(0).toUpperCase() + category.slice(1);
     content.appendChild(title);
     for (const technologies in roadData[category]) {
       const categoryTitle = document.createElement("h3");
-      categoryTitle.className = "text-5xl font-bold mt-16 mb-8 text-gray-800 text-center"; // More spacing
+      categoryTitle.className = "text-5xl font-bold mt-1 mb-6 text-gray-800 text-center"; // More spacing
       categoryTitle.innerText = technologies;
       content.appendChild(categoryTitle);
       roadData[category][technologies].forEach(text => {
-        const card = document.createElement("div");
-        card.className = text.name.trim() === "JavaScript" || text.name.trim() === "Git" || text.name.trim() === "Github" || text.name.trim() === "PostgreSQL" || text.name.trim() === "JSON APId" || text.name.trim() === "Integratsiooni testid" || text.name.trim() === "Üksuse testid" || text.name.trim() === "Funktsionaalsuse testid" ? "yellow-item" : "red-item";
-        card.innerHTML = `<div class="card-body">
-                            <h5 class="text-3xl font-bold">${text.name}</h5>
-                          </div>`;
+        const card = document.createElement("button");
+        card.className = category === 'backend' ? "bg-blue-500 text-white py-2 px-4 rounded mb-4" :
+                        category === 'frontend' ? "bg-green-500 text-white py-2 px-4 rounded mb-4" :
+                        "bg-purple-500 text-white py-2 px-4 rounded mb-4";
+        card.innerText = text.name;
+        card.style.marginBottom = "2rem"; // Add margin between buttons
         card.addEventListener("click", () => showModal(text.name, text.description, text.video_url));
         content.appendChild(card);
       });
@@ -89,12 +91,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const embedUrl = videoUrl.replace("watch?v=", "embed/");
     document.getElementById("modal-video").src = embedUrl;
 
-    document.getElementById("modal").classList.remove("hidden");
+    const modal = document.getElementById("modal");
+    modal.classList.remove("hidden");
+    modal.scrollTop = 0; // Ensure modal starts from the top
+    document.body.style.overflow = "hidden"; // Make background unscrollable
+
+    // Adjust modal position for mobile devices
+    if (window.innerWidth <= 768) {
+      modal.style.top = "0";
+      modal.style.height = "100vh";
+    }
   };
 
   document.getElementById("close-modal").addEventListener("click", () => {
-    document.getElementById("modal").classList.add("hidden");
+    const modal = document.getElementById("modal");
+    modal.classList.add("hidden");
     document.getElementById("modal-video").src = ""; // Stop the video
+    document.body.style.overflow = "auto"; // Make background scrollable again
   });
 
   // Hide menu on scroll

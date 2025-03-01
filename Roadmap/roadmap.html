@@ -9,8 +9,8 @@
     <style>
         .main-button {
             font-size: 2.5rem; /* Reverted from 5.5rem */
-            padding: 1.5rem 3rem; /* Reverted from 4rem 8rem */
-            border-radius: 1.5rem; /* Reverted from 3rem */
+            padding: 1.5rem 1.5rem; /* Reverted from 4rem 8rem */
+            border-radius: 1.1rem; /* Reverted from 3rem */
             min-width: 800px; /* Increased from 600px */
             transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
             cursor: pointer; /* Change cursor to pointer */
@@ -85,39 +85,9 @@
                 font-size: 1rem; /* Smaller font size for mobile */
             }
         }
-        /* New styles for yellow items */
-        .yellow-item {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #ecc94b; /* Yellow background */
-            color: #000; /* Black text */
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            text-align: center; /* Center align text */
-        }
-        @media (max-width: 768px) {
-            .yellow-item {
-                padding: 0.5rem 1rem; /* Smaller padding for mobile */
-                margin-top: 1rem; /* Add more padding between text and top menu buttons */
-            }
-        }
-        .yellow-item:hover {
-            background-color: #d69e2e; /* Darker yellow on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover */
-        }
-        /* New styles for red-lined items */
-        .red-item {
-            font-size: 1.5rem; /* Increased font size */
-            font-weight: bold;
-            color: #e53e3e; /* Red text color */
-            text-align: center; /* Center align text */
-        }
-        @media (max-width: 768px) {
-            .red-item {
-                font-size: 1.25rem; /* Smaller font size for mobile */
-                margin-top: 1rem; /* Add more padding between text and top menu buttons */
-            }
+        #modal {
+            overflow-y: auto; /* Make modal content scrollable */
+            max-height: 100vh; /* Ensure modal fits within the viewport */
         }
     </style>
 </head>
@@ -131,21 +101,36 @@
         </div>
         <!-- Removed the "Tagasi" button -->
     </div>
-    <div id="content" class="container mx-auto mt-8 hidden">
+    <div id="content" class="container mx-auto mt-8 hidden text-center">
         <!-- Example of dynamically generated content -->
-        <div class="yellow-item">JavaScript</div>
-        <div class="red-item">Versiooni kontroll</div>
-        <div class="yellow-item">Git</div>
-        <div class="red-item">Repo hostimisteenus</div>
-        <div class="yellow-item">Github</div>
-        <div class="red-item">Andmebaas</div>
-        <div class="yellow-item">PostgreSQL</div>
-        <div class="red-item">Õpi API kohta</div>
-        <div class="yellow-item">JSON APId</div>
-        <div class="red-item">Testimine</div>
-        <div class="yellow-item">Integratsiooni testid</div>
-        <div class="yellow-item">Üksuse testid</div>
-        <div class="yellow-item">Funktsionaalsuse testid</div>
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-2">Programming Languages</h2>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">JavaScript</button>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-2">Version Control</h2>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Versiooni kontroll</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Git</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Repo hostimisteenus</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Github</button>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-2">Databases</h2>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Andmebaas</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">PostgreSQL</button>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-2">APIs</h2>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Õpi API kohta</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">JSON APId</button>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-2">Testing</h2>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Testimine</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Integratsiooni testid</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Üksuse testid</button>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Funktsionaalsuse testid</button>
+        </div>
     </div>
 
     <!-- Modal Structure -->
@@ -154,7 +139,7 @@
             <div class="p-4">
                 <h3 id="modal-title" class="text-xl font-bold mb-3">Modal Title</h3>
                 <p id="modal-description" class="text-gray-600 mb-3 text-sm leading-relaxed">This is a description inside the modal.</p>
-                <div class="relative pt-[56.25%] w-full max-w-[300px] mx-auto"> <!-- Added max-width and center alignment -->
+                <div class="relative pt-[56.25%] w-full max-w-[300px] max-height-[900px]  mx-auto"> <!-- Added max-width and center alignment -->
                     <iframe id="modal-video" 
                             class="absolute inset-0 w-full h-full" 
                             src="" 

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('workout-form');
     const typeImages = document.querySelectorAll('.type-img');
 
+    // Tüüpide piltide valimine
     typeImages.forEach(img => {
         img.addEventListener('click', () => {
             typeImages.forEach(i => i.classList.remove('selected'));
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let hasError = false;
 
+        // Väljade valideerimine
         if (!name) {
             document.getElementById('name-error').classList.remove('hidden');
             hasError = true;
@@ -59,13 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Treeningu objekti loomine
         const workout = {
             name: name,
             type: typeSelected.value,
             duration: duration,
             intensity: intensitySelected.value,
             frequency: frequency,
-            comments: form.comments.value
+            comments: form.comments.value,
+            done: false // Algväärtus: mitte tehtud
         };
         saveWorkout(workout);
         form.reset();
@@ -82,10 +86,10 @@ function saveWorkout(workout) {
 
 function showLatestWorkout(workout) {
     const workoutListContainer = document.getElementById('workout-list-container');
-    workoutListContainer.innerHTML = ''; // Clear existing workouts
+    workoutListContainer.innerHTML = ''; // Kustuta olemasolevad treeningud
 
     const workoutCard = document.createElement('div');
-    workoutCard.className = 'bg-white shadow-md rounded-lg p-4 mb-4 mx-auto max-w-md';
+    workoutCard.className = `bg-white shadow-md rounded-lg p-4 mb-4 mx-auto max-w-md ${workout.done ? 'bg-green-100' : ''}`;
     workoutCard.innerHTML = `
         <h5 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">${workout.name}</h5>
         <p class="text-gray-700">Tüüp: ${workout.type}</p>
@@ -93,10 +97,11 @@ function showLatestWorkout(workout) {
         <p class="text-gray-700">Intensiivsus: ${workout.intensity}</p>
         <p class="text-gray-700">Sagedus: ${workout.frequency} korda nädalas</p>
         <p class="text-gray-700">Kommentaar: ${workout.comments}</p>
+        <input type="checkbox" class="absolute bottom-2 left-2 w-6 h-6" ${workout.done ? 'checked' : ''} onclick="toggleDone(${index})">
     `;
     workoutListContainer.appendChild(workoutCard);
 
-    // Ensure the title color changes in dark mode
+    // Veendu, et pealkirja värv muutub tume režiimis
     if (document.body.classList.contains('dark-mode')) {
         workoutCard.querySelector('h5').classList.add('dark:text-white');
     }

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
+    <!-- Metaandmed ja stiilid -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personaalne Treeningukava</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        .selected {
+       
+        .selected { /* Kui valid treeningu tüübi siis ääristab roheliseks */
             border: 4px solid green;
         }
+        /* Keha taustapilt ja stiilid */
         body {
             background-image: url('./imgworkout/designer.jpeg');
             background-size: cover;
@@ -17,22 +20,24 @@
         body.dark-mode {
             background-image: url('./imgworkout/designer1.jpeg');
         }
+        /* Modaalkaardi stiilid */
         .modal-card {
-            background: rgba(255, 182, 193, 0.9); /* Light pink */
+            background: rgba(255, 182, 193, 0.9); /* Hele roosa */
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-width: 90%;
+            width: 90%;
             max-width: 600px;
-     margin: auto;
+            margin: auto;
             position: relative;
         }
         body.dark-mode .modal-card {
-            background: rgba(56, 15, 36, 0.9); /* Dark pink */
+            background: rgba(56, 15, 36, 0.9); 
         }
         body.dark-mode .text-gray-700 {
-            color: #d3d3d3; /* Light gray */
+            color: #d3d3d3; /* Hele hall */
         }
+        /* Sisendväljade ja tekstiala keskjoondus */
         input[type="number"], input[type="text"], textarea {
             text-align: center;
         }
@@ -40,25 +45,58 @@ width: 90%;
             text-align: center;
         }
         body.dark-mode input[type="number"], body.dark-mode input[type="text"], body.dark-mode textarea {
-            color: #000000; /* Black */
+            color: #000000; 
         }
         body.dark-mode input[type="number"]::placeholder, body.dark-mode input[type="text"]::placeholder, body.dark-mode textarea::placeholder {
-            color: #d3d3d3; /* Light gray */
+            color: #d3d3d3; 
         }
+        /* Tumeda režiimi lüliti positsioon */
         #dark-mode-toggle {
             position: absolute;
             top: 10px;
             right: 10px;
         }
         .container {
-            padding-top: 50px; /* Add padding to the top */
+            padding-top: 50px;
+        }
+        /* Filtrikaardi stiilid */
+        .filter-card {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto 20px; /* Vahe teistega*/
+            position: relative;
+        }
+        body.dark-mode .filter-card {
+            background: rgba(56, 56, 56, 0.9); 
+        }
+        /* Statistika kaardi stiilid */
+        .stats-card {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto 20px;
+            position: relative;
+        }
+        body.dark-mode .stats-card { 
+            background: rgba(56, 56, 56, 0.9); 
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 flex items-center justify-center min-h-screen">
     <div class="modal-card">
-        <button id="dark-mode-toggle" class="bg-gray-800 text-white py-2 px-4 rounded">Lülita tume režiim</button>
+        <!-- Tume režiimi lüliti -->
+        <button id="dark-mode-toggle" class="bg-gray-800 text-white py-2 px-4 rounded">Tume režiim</button>
         <div class="container mx-auto mt-5 text-center">
+            <!-- Treeningu vorm -->
             <form id="workout-form" class="mb-5">
                 <div id="form-error" class="text-red-500 mb-4 hidden">Kõik väljad peavad olema täidetud!</div>
                 <div class="mb-4">
@@ -70,6 +108,7 @@ width: 90%;
                     <label class="block text-gray-700">Treeningu tüüp:</label>
                     <div id="type-error" class="text-red-500 mb-4 hidden">Vali üks treeningu tüüp!</div>
                     <div class="flex justify-center mt-2">
+                        <!-- Treeningu tüüpide valikud -->
                         <label class="inline-flex items-center flex-col mx-2">
                             <input type="radio" id="strength" name="type" value="jõutreening" class="hidden" tabindex="0">
                             <img src="./imgworkout/gym-workout.gif" alt="Jõutreening" class="cursor-pointer w-40 h-40 type-img">
@@ -96,6 +135,7 @@ width: 90%;
                     <label class="block text-gray-700">Intensiivsus:</label>
                     <div id="intensity-error" class="text-red-500 mb-4 hidden">Vali intensiivsus!</div>
                     <div class="mt-2">
+                        <!-- Intensiivsuse valikud -->
                         <label class="inline-flex items-center">
                             <input type="radio" id="low" name="intensity" value="madal" class="form-radio">
                             <span class="ml-2">Madal</span>
@@ -122,13 +162,51 @@ width: 90%;
                 <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Lisa treening</button>
             </form>
             <button id="view-workouts" class="bg-blue-500 text-white py-2 px-4 rounded">Vaata kõiki treeninguid</button>
+            <div id="filter-container" class="mt-2 text-center">
+                <button id="filter-workouts" class="bg-purple-500 text-white py-2 px-4 rounded mt-2 mx-auto block" style="display: none;">Filtreeri treeninguid</button>
+                <div id="filter-card" class="filter-card">
+                    <h3 class="text-xl font-bold mb-4">Filtreeri treeninguid</h3>
+                    <form id="filter-form">
+                        <div class="mb-4">
+                            <label for="filter-type" class="block text-gray-700">Treeningu tüüp:</label>
+                            <select id="filter-type" name="filter-type" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                <option value="">Kõik</option>
+                                <option value="jõutreening">Jõutreening</option>
+                                <option value="kardio">Kardio</option>
+                                <option value="jooga">Jooga</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="filter-intensity" class="block text-gray-700">Intensiivsus:</label>
+                            <select id="filter-intensity" name="filter-intensity" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                <option value="">Kõik</option>
+                                <option value="madal">Madal</option>
+                                <option value="keskmine">Keskmine</option>
+                                <option value="kõrge">Kõrge</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Rakenda filter</button>
+                    </form>
+                    <button id="clear-filters" class="bg-red-500 text-white py-2 px-4 rounded mt-2">Tühista kõik filtrid</button>
+                </div>
+            </div>
             <div id="workout-list-container"></div>
+            <button id="view-stats" class="bg-black text-white py-2 px-4 rounded mt-2 mx-auto block" style="display: none;">Statistika</button>
+            <div id="stats-card" class="stats-card">
+                <h3 class="text-xl font-bold mb-4">Statistika</h3>
+                <p id="total-trainings" class="text-gray-700">Kokku treeninguid: 0</p>
+                <p id="average-frequency" class="text-gray-700">Keskmine sagedus: 0 korda nädalas</p>
+                <p id="average-duration" class="text-gray-700">Keskmine kestus: 0 minutit</p>
+            </div>
         </div>
     </div>
+    <!-- JavaScript failide lisamine -->
     <script src="workoutform.js" type="module"></script>
     <script src="workoutlist.js" type="module"></script>
     <script src="workoutapp.js" type="module"></script>
-    <script>
+    <script type="module">
+        import { displayWorkouts } from './workoutlist.js';
+
         document.getElementById('workout-form').addEventListener('submit', function(event) {
             const form = event.target;
             const name = form.name.value.trim();
@@ -178,6 +256,62 @@ width: 90%;
                 event.preventDefault();
             }
         });
+
+        document.getElementById('view-workouts').addEventListener('click', () => {
+            const filterButton = document.getElementById('filter-workouts');
+            const statsButton = document.getElementById('view-stats');
+            const filterCard = document.getElementById('filter-card');
+            const statsCard = document.getElementById('stats-card');
+            if (filterButton.style.display === 'block') {
+                filterButton.style.display = 'none';
+                statsButton.style.display = 'none';
+                filterCard.style.display = 'none';
+                statsCard.style.display = 'none';
+            } else {
+                filterButton.style.display = 'block';
+                statsButton.style.display = 'block';
+                displayWorkouts(); // Kuvab algselt kõik treeningud
+            }
+        });
+
+        document.getElementById('filter-workouts').addEventListener('click', () => {
+            const filterCard = document.getElementById('filter-card');
+            filterCard.style.display = filterCard.style.display === 'none' ? 'block' : 'none';
+        });
+
+        document.getElementById('view-stats').addEventListener('click', () => {
+            const statsCard = document.getElementById('stats-card');
+            statsCard.style.display = statsCard.style.display === 'none' ? 'block' : 'none';
+            updateStats();
+            if (statsCard.style.display === 'block') {
+                statsCard.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        document.getElementById('filter-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const type = document.getElementById('filter-type').value;
+            const intensity = document.getElementById('filter-intensity').value;
+            displayWorkouts(type, intensity);
+        });
+
+        document.getElementById('clear-filters').addEventListener('click', () => {
+            displayWorkouts();
+            document.getElementById('filter-card').style.display = 'none';
+        });
+
+        function updateStats() {
+            const workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+            const totalTrainings = workouts.length;
+            const totalFrequency = workouts.reduce((sum, workout) => sum + parseInt(workout.frequency), 0);
+            const totalDuration = workouts.reduce((sum, workout) => sum + parseInt(workout.duration), 0);
+            const averageFrequency = totalTrainings ? (totalFrequency / totalTrainings).toFixed(2) : 0;
+            const averageDuration = totalTrainings ? (totalDuration / totalTrainings).toFixed(2) : 0;
+
+            document.getElementById('total-trainings').textContent = `Kokku treeninguid: ${totalTrainings}`;
+            document.getElementById('average-frequency').textContent = `Keskmine sagedus: ${averageFrequency} korda nädalas`;
+            document.getElementById('average-duration').textContent = `Keskmine kestus: ${averageDuration} minutit`;
+        }
     </script>
 </body>
 </html>

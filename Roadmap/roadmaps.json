@@ -4,20 +4,20 @@
       {
         "name": "JavaScript ",
         "description": "JavaScript is a versatile, high-level programming language primarily used for adding interactivity and dynamic features to websites. It runs in the browser, allowing for client-side scripting that can manipulate HTML and CSS, respond to user events, and interact with web APIs. JavaScript is also used on the server side with environments like Node.js, enabling full-stack development. It supports event-driven, functional, and imperative programming styles, and has a rich ecosystem of libraries and frameworks (like React, Angular, and Vue) that enhance its capabilities and streamline development.",
-        "video_url": "https://www.youtube.com/watch?v=hdI2bqOjy3c&t=2s"
+        "video_url": "https://www.youtube.com/watch?v=W6NZfCO5SIk"
       }
     ],
     "Versiooni kontroll": [
       {
         "name": "Git ",
-        "description": "Git is a distributed version control system designed to handle projects of any size with speed and efficiency. Created by Linus Torvalds in 2005, it tracks changes in source code during software development, allowing multiple developers to work together on non-linear development. Git maintains a complete history of all changes, enabling easy rollbacks and comparisons between versions. Its distributed nature means each developer has a full copy of the repository, allowing for offline work and backup. Git’s key features include branching and merging capabilities, staging area for commits, and support for collaborative workflows like pull requests. Its speed, flexibility, and robust branching and merging capabilities have made it the most widely used version control system in software development, particularly for open-source projects and team collaborations.",
+        "description": "Git is a distributed version control system designed to handle projects of any size with speed and efficiency. Created by Linus Torvalds in 2005, it tracks changes in source code during software development, allowing multiple developers to work together on non-linear development. Git maintains a complete history of all changes, enabling easy rollbacks and comparisons between versions. Its distributed nature means each developer has a full copy of the repository, allowing for offline work and backup. Git’s key features include branching and merging capabilities, staging area for commits, and support for collaborative workflows like pull requests.",
         "video_url": "https://www.youtube.com/watch?v=SWYqp7iY_Tc"
       }
     ],
     "Repo hostimisteenus": [
       {
         "name": "Github ",
-        "description": "GitHub is a web-based platform for version control and collaboration using Git. Owned by Microsoft, it provides hosting for software development and offers features beyond basic Git functionality. GitHub includes tools for project management, code review, and social coding. Key features include repositories for storing code, pull requests for proposing and reviewing changes, issues for tracking bugs and tasks, and actions for automating workflows. It supports both public and private repositories, making it popular for open-source projects and private development. GitHub’s collaborative features, like forking repositories and inline code comments, facilitate team development and community contributions. With its extensive integrations and large user base, GitHub has become a central hub for developers, serving as a portfolio, collaboration platform, and deployment tool for software projects of all sizes.",
+        "description": "GitHub is a web-based platform for version control and collaboration using Git. Owned by Microsoft, it provides hosting for software development and offers features beyond basic Git functionality. GitHub includes tools for project management, code review, and social coding. Key features include repositories for storing code, pull requests for proposing and reviewing changes, issues for tracking bugs and tasks, and actions for automating workflows. It supports both public and private repositories, making it popular for open-source projects and private development. GitHub’s collaborative features, like forking repositories and inline code comments, facilitate team development and community contributions.",
         "video_url": "https://www.youtube.com/watch?v=RGOj5yH7evk"
       }
     ],
@@ -44,7 +44,7 @@
       {
         "name": "Üksuse testid",
         "description": "Unit testing is a software testing method where individual components or units of a program are tested in isolation to ensure they function correctly. This approach focuses on verifying the smallest testable parts of an application, such as functions or methods, by executing them with predefined inputs and comparing the results to expected outcomes. Unit tests are typically automated and written by developers during the coding phase to catch bugs early, facilitate code refactoring, and ensure that each unit of code performs as intended. By isolating and testing each component, unit testing helps improve code reliability and maintainability.",
-        "video_url": "https://www.youtube.com/watch?v=W2KOSaetWBk"
+        "video_url": "https://www.youtube.com/watch?v=3kzHmaeozDI"
       },
       {
         "name": "Funktsionaalsuse testid",
@@ -57,8 +57,13 @@
     "Keeled": [
       {
         "name": "HTML",
-        "description": "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a webpage and is used to organize and format content such as text, images, and links.",
-        "video_url": "https://www.youtube.com/watch?v=pQN-pnXPaVg"
+        "description": "HTML stands for HyperText Markup Language. It is used on the frontend and gives the structure to the webpage which you can style using CSS and make interactive using JavaScript.",
+        "video_url": "https://www.youtube.com/watch?v=mJgBOIoGihA"
+      },
+      {
+        "name": "JavaScript",
+        "description": "JavaScript is a high-level, interpreted programming language that is a core technology of the World Wide Web. It allows for dynamic, client-side scripting in web browsers, enabling interactive web pages and user interfaces. JavaScript supports object-oriented, imperative, and functional programming styles. It’s also used server-side through Node.js, for desktop application development with frameworks like Electron, and in various other contexts. The language features dynamic typing, first-class functions, and prototype-based object-orientation.",
+        "video_url": "https://www.youtube.com/watch?v=hdI2bqOjy3c"
       }
     ],
     "Stiilid": [
@@ -66,36 +71,152 @@
         "name": "CSS",
         "description": "CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.",
         "video_url": "https://www.youtube.com/watch?v=yfoY53QXEnI"
+      },
+      {
+        "name": "Tailwind",
+        "description": "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces. It provides low-level utility classes that let you build completely custom designs without ever leaving your HTML.",
+        "video_url": "https://www.youtube.com/watch?v=UBOj6rqRUME"
+      }
+    ],
+    "Versiooni kontroll": [
+      {
+        "name": "Git",
+        "description": "Git is a distributed version control system designed to handle projects of any size with speed and efficiency. Created by Linus Torvalds in 2005, it tracks changes in source code during software development, allowing multiple developers to work together on non-linear development. Git maintains a complete history of all changes, enabling easy rollbacks and comparisons between versions. Its distributed nature means each developer has a full copy of the repository, allowing for offline work and backup. Git’s key features include branching and merging capabilities, staging area for commits, and support for collaborative workflows like pull requests.",
+        "video_url": "https://www.youtube.com/watch?v=mJ-qvsxPHpY"
+      }
+    ],
+    "Paketihaldurid": [
+      {
+        "name": "NPM",
+        "description": "npm (Node Package Manager) is the default package manager for Node.js, providing a vast ecosystem of reusable JavaScript code. It allows developers to easily share, discover, and install packages (libraries and tools) for their projects. npm consists of a command-line interface for package installation and management, and an online repository of open-source packages. It handles dependency management, version control, and script running for Node.js projects. The npm registry is the largest software registry in the world, containing over a million packages.",
+        "video_url": "https://www.youtube.com/watch?v=P3aKRdUyr0s"
       }
     ],
     "Raamistikud": [
       {
         "name": "React",
-        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can update and render efficiently in response to data changes.",
+        "description": "React is an open-source JavaScript library for building user interfaces, primarily for single-page applications. Developed and maintained by Facebook, it allows developers to create reusable UI components that efficiently update and render as data changes. React uses a virtual DOM for performance optimization and supports a unidirectional data flow. Its component-based architecture promotes modularity and reusability. React’s ecosystem includes tools like Redux for state management and React Native for mobile app development.",
         "video_url": "https://www.youtube.com/watch?v=Ke90Tje7VS0"
+      }
+    ],
+    "Testimine": [
+      {
+        "name": "Vitest",
+        "description": "Vitest is a fast and lightweight testing framework for JavaScript and TypeScript projects, designed as a Vite-native alternative to Jest. It leverages Vite’s transformation pipeline and config resolution, offering near-instant test execution and hot module replacement (HMR) for tests. Vitest provides a Jest-compatible API, making migration easier for projects already using Jest. It supports features like snapshot testing, mocking, and code coverage out of the box. Vitest’s architecture allows for parallel test execution and watch mode, significantly speeding up the testing process. ",
+        "video_url": "https://www.youtube.com/watch?v=FJRuG85tXV0"
       }
     ]
   },
   "fullstack": {
     "Keeled": [
       {
+        "name": "HTML",
+        "description": "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a webpage and is used to organize and format content such as text, images, and links.",
+        "video_url": "https://www.youtube.com/watch?v=pQN-pnXPaVg"
+      },
+      {
+        "name": "CSS",
+        "description": "CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.",
+        "video_url": "https://www.youtube.com/watch?v=yfoY53QXEnI"
+      },
+      {
         "name": "JavaScript",
         "description": "JavaScript is a versatile, high-level programming language primarily used for adding interactivity and dynamic features to websites. It runs in the browser, allowing for client-side scripting that can manipulate HTML and CSS, respond to user events, and interact with web APIs. JavaScript is also used on the server side with environments like Node.js, enabling full-stack development.",
         "video_url": "https://www.youtube.com/watch?v=hdI2bqOjy3c"
       }
     ],
+    "Paketihaldurid": [
+      {
+        "name": "NPM",
+        "description": "npm (Node Package Manager) is the default package manager for Node.js, providing a vast ecosystem of reusable JavaScript code. It allows developers to easily share, discover, and install packages (libraries and tools) for their projects. npm consists of a command-line interface for package installation and management, and an online repository of open-source packages. It handles dependency management, version control, and script running for Node.js projects. The npm registry is the largest software registry in the world, containing over a million packages.",
+        "video_url": "https://www.youtube.com/watch?v=P3aKRdUyr0s"
+      }
+    ],
+    "Versiooni kontroll": [
+      {
+        "name": "Git",
+        "description": "Git is a distributed version control system designed to handle projects of any size with speed and efficiency. Created by Linus Torvalds in 2005, it tracks changes in source code during software development, allowing multiple developers to work together on non-linear development. Git maintains a complete history of all changes, enabling easy rollbacks and comparisons between versions. Its distributed nature means each developer has a full copy of the repository, allowing for offline work and backup. Git’s key features include branching and merging capabilities, staging area for commits, and support for collaborative workflows like pull requests.",
+        "video_url": "https://www.youtube.com/watch?v=SWYqp7iY_Tc"
+      },
+      {
+        "name": "GitHub",
+        "description": "GitHub is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own features.",
+        "video_url": "https://www.youtube.com/watch?v=RGOj5yH7evk"
+      }
+    ],
+    "Stiilid": [
+      {
+        "name": "Tailwind CSS",
+        "description": "CSS Framework that provides atomic CSS classes to help you style components e.g. flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.",
+        "video_url": "https://www.youtube.com/watch?v=UBOj6rqRUME"
+      }
+    ],
     "Raamistikud": [
       {
+        "name": "React",
+        "description": "React is the most popular front-end JavaScript library for building user interfaces. React can also render on the server using Node and power mobile apps using React Native.",
+        "video_url": "https://www.youtube.com/watch?v=Ke90Tje7VS0"
+      },
+      {
         "name": "Node.js",
-        "description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to use JavaScript to write server-side code, enabling full-stack development with a single programming language.",
+        "description": "Node.js is an open-source and cross-platform JavaScript runtime environment. It is a popular tool for almost any kind of project! Node.js runs the V8 JavaScript engine, Google Chrome’s core, outside the browser. This allows Node.js to be very performant. A Node.js app runs in a single process, without creating a new thread for every request. Node.js provides a set of asynchronous I/O primitives in its standard library that prevent JavaScript code from blocking and generally, libraries in Node.js are written using non-blocking paradigms, making blocking behavior the exception rather than the norm.",
         "video_url": "https://www.youtube.com/watch?v=TlB_eWDSMt4"
       }
     ],
     "Andmebaasid": [
       {
-        "name": "MongoDB",
-        "description": "MongoDB is a NoSQL database that uses JSON-like documents with optional schemas. It is known for its scalability and flexibility, making it a popular choice for modern web applications.",
-        "video_url": "https://www.youtube.com/watch?v=FwMwO8pXfq0"
+        "name": "PostgreSQL",
+        "description": "PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance.",
+        "video_url": "https://www.youtube.com/watch?v=SpfIwlAYaKk"
+      },
+      {
+        "name": "Redis",
+        "description": "Redis is an open source (BSD licensed), in-memory data structure store used as a database, cache, message broker, and streaming engine. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.",
+        "video_url": "https://www.youtube.com/watch?v=Hbt56gFj998"
+      }
+    ],
+    "APIs": [
+      {
+        "name": "RESTful APIs",
+        "description": "REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.",
+        "video_url": "https://www.youtube.com/watch?v=Q-BpqyOT3a8"
+      },
+      {
+        "name": "JWT Auth",
+        "description": "JWT stands for JSON Web Token is a token-based encryption open standard/methodology that is used to transfer information securely as a JSON object. Clients and Servers use JWT to securely share information, with the JWT containing encoded JSON objects and claims. JWTs are designed to be compact, safe to use within URLs, and ideal for SSO contexts.",
+        "video_url": "https://www.youtube.com/watch?v=7Q17ubqLfaM"
+      }
+    ],
+    "DevOps": [
+      {
+        "name": "Linux Basics",
+        "description": "Knowledge of UNIX is a must for almost all kind of development as most of the codes that you write is most likely going to be finally deployed on a UNIX/Linux machine. Linux has been the backbone of the free and open source software movement, providing a simple and elegant operating system for almost all your needs.",
+        "video_url": "https://www.youtube.com/watch?v=wBp0Rb-ZJak"
+      },
+      {
+        "name": "Basic AWS Services",
+        "description": "AWS has several services but you don’t need to know all of them. Some common ones that you can start with are EC2, VPN, S3, Route 53, and SES.",
+        "video_url": "https://www.youtube.com/watch?v=oHAQ3TzUTro"
+      },
+      {
+        "name": "Monit",
+        "description": "When it comes to monitoring the health of your applications, there are several different options available. My favorite monitoring stack is Prometheus and Grafana, but it can be a bit overwhelming to set up and configure. If you’re looking for a simpler solution, Monit is a great alternative that can be utilized to monitor and manage system resources such as services, processes, files, directories, devices, and network connections, making your application more reliable and resilient to issues like crashes, unresponsiveness, or resource exhaustion.",
+        "video_url": "https://www.youtube.com/watch?v=3cA5lNje1Ow"
+      },
+      {
+        "name": "GitHub Actions",
+        "description": "GitHub Actions is a workflow automation tool provided by GitHub that can be used to automate various tasks in the app development process.",
+        "video_url": "https://www.youtube.com/watch?v=R8_veQiYBjI"
+      },
+      {
+        "name": "Ansible",
+        "description": "Ansible is an open-source configuration management, application deployment and provisioning tool that uses its own declarative language in YAML. Ansible is agentless, meaning you only need remote connections via SSH or Windows Remote Management via Powershell in order to function",
+        "video_url": "https://www.youtube.com/watch?v=9Ua2b06oAr4"
+      },
+      {
+        "name": "Terraform",
+        "description": "Terraform is an extremely popular open source Infrastructure as Code (IaC) tool that can be used with many different cloud and service provider APIs. Terraform focuses on an immutable approach to infrastructure, with a terraform state file center to tracking the status of your real world infrastructure.",
+        "video_url": "https://www.youtube.com/watch?v=SLB_c_ayRMo"
       }
     ]
   }

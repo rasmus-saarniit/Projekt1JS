@@ -3,21 +3,21 @@
 }
 
 #menu-container.moving-up {
-    transform: translateY(calc(-50vh + 2rem));
+    transform: translateY(calc(-47vh + 2rem));
     position: fixed;
-    top: 50vh;
+    top: 45vh;
     left: 0;
     right: 0;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem;
+    padding: 0.4rem;
     z-index: 10;
     forced-colors: active; /* New property */
 }
 
 #menu-container.moving-up button {
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     forced-color-adjust: auto; /* New property */
 }
 
@@ -35,7 +35,7 @@
 }
 
 #menu-container button {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease;
 }
 
 #menu-container button.faded {
@@ -56,4 +56,13 @@
 select {
     direction: rtl; /* Ensure dropdown menu goes downwards */
     position: absolute; /* Ensure dropdown menu goes downwards */
+}
+
+#modal {
+    overflow-y: auto; /* Make modal content scrollable */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-height: 100vh; /* Ensure modal fits within the viewport */
+    max-width: 100vw; /* Ensure modal doesn't open too wide */
+    width: 100%; /* Ensure modal takes full width up to max-width */
+    padding: 10rem; /* Add some padding */
 }
