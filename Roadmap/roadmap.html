@@ -15,8 +15,37 @@
             transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
             cursor: pointer; /* Change cursor to pointer */
         }
-        .main-button:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
+        @media (max-width: 1024px) {
+            .main-button {
+                font-size: 2rem; /* Smaller font size for tablet */
+                padding: 1rem 2rem; /* Smaller padding for tablet */
+                min-width: 600px; /* Adjusted width for tablet */
+            }
+        }
+        @media (max-width: 768px) {
+            .main-button {
+                font-size: 1rem; /* Smaller font size for mobile */
+                padding: 0.5rem 1rem; /* Smaller padding for mobile */
+                min-width: 100%; /* Full width for mobile */
+            }
+        }
+        .main-button.shrink {
+            font-size: 0.8rem; /* Much smaller */
+            padding: 0.5rem 1rem; /* Smaller padding */
+            min-width: auto; /* Remove min-width */
+            transform: translateY(-20px); /* Hover up */
+        }
+        @media (max-width: 1024px) {
+            .main-button.shrink {
+                font-size: 0.6rem; /* Smaller for tablet */
+                padding: 0.4rem 0.8rem; /* Smaller padding for tablet */
+            }
+        }
+        @media (max-width: 768px) {
+            .main-button.shrink {
+                font-size: 0.4rem; /* Even smaller for mobile */
+                padding: 0.2rem 0.4rem; /* Smaller padding for mobile */
+            }
         }
         .small-button {
             font-size: 1.5rem; /* Increased from 1rem */
@@ -27,8 +56,11 @@
             transition: background-color 0.3s ease; /* Smooth transition */
             cursor: pointer; /* Change cursor to pointer */
         }
-        .small-button:hover {
-            background-color: #2d3748; /* Slightly darker on hover */
+        @media (max-width: 768px) {
+            .small-button {
+                font-size: 1rem; /* Smaller font size for mobile */
+                padding: 0.25rem 0.5rem; /* Smaller padding for mobile */
+            }
         }
         /* New styles for readability */
         body {
@@ -39,9 +71,19 @@
             font-size: 3rem; /* Adjusted font size */
             color: #333; /* Darker text color */
         }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller font size for mobile */
+            }
+        }
         p {
             font-size: 1.25rem; /* Adjusted font size */
             color: #555; /* Darker text color */
+        }
+        @media (max-width: 768px) {
+            p {
+                font-size: 1rem; /* Smaller font size for mobile */
+            }
         }
         /* New styles for yellow items */
         .yellow-item {
@@ -54,6 +96,12 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             text-align: center; /* Center align text */
         }
+        @media (max-width: 768px) {
+            .yellow-item {
+                padding: 0.5rem 1rem; /* Smaller padding for mobile */
+                margin-top: 1rem; /* Add more padding between text and top menu buttons */
+            }
+        }
         .yellow-item:hover {
             background-color: #d69e2e; /* Darker yellow on hover */
             transform: scale(1.05); /* Slightly enlarge on hover */
@@ -65,19 +113,23 @@
             color: #e53e3e; /* Red text color */
             text-align: center; /* Center align text */
         }
+        @media (max-width: 768px) {
+            .red-item {
+                font-size: 1.25rem; /* Smaller font size for mobile */
+                margin-top: 1rem; /* Add more padding between text and top menu buttons */
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div id="menu-container" class="container mx-auto text-center transition-all duration-500">
-        <h1 class="text-4xl font-bold mb-8">Developer Roadmap</h1> <!-- Reverted from text-6xl and mb-12 -->
+        <h1 id="main-title" class="text-4xl font-bold mb-8">Developer Roadmap</h1> <!-- Reverted from text-6xl and mb-12 -->
         <div class="space-y-4"> <!-- Reverted from space-y-8 -->
             <button id="backend" class="main-button bg-blue-500 text-white hover:bg-blue-600">Backend</button>
             <button id="frontend" class="main-button bg-green-500 text-white hover:bg-green-600">Frontend</button>
             <button id="fullstack" class="main-button bg-purple-500 text-white hover:bg-purple-600">Full Stack</button>
         </div>
-        <div class="mt-8"> <!-- Reverted from mt-12 -->
-            <button onclick="location.href='../index.html'" class="small-button">Tagasi</button> <!-- Removed additional classes -->
-        </div>
+        <!-- Removed the "Tagasi" button -->
     </div>
     <div id="content" class="container mx-auto mt-8 hidden">
         <!-- Example of dynamically generated content -->

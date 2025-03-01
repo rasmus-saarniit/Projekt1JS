@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const displayRoadmap = (category) => {
     const menuContainer = document.getElementById("menu-container");
+    const mainTitle = document.getElementById("main-title");
 
     if (!hasMovedUp) {
       menuContainer.classList.add("moving-up");
@@ -37,13 +38,22 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       showContent(category);
     }
+
+    // Hide the "Developer Roadmap" title
+    mainTitle.classList.add("hidden");
+
+    // Shrink the buttons
+    const buttons = document.querySelectorAll("#menu-container button");
+    buttons.forEach(button => {
+      button.classList.add("shrink");
+    });
   };
 
   const showContent = (category) => {
     const buttons = document.querySelectorAll("#menu-container button");
     buttons.forEach(button => {
       button.classList.remove("text-4xl", "py-8", "px-16");
-      button.classList.add("text-base", "py-2", "px-4");
+      button.classList.add("text-sm", "py-2", "px-4"); // Make buttons much smaller
     });
 
     const content = document.getElementById("content");
@@ -86,6 +96,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal").classList.add("hidden");
     document.getElementById("modal-video").src = ""; // Stop the video
   });
+
+  // Hide menu on scroll
+  let lastScrollTop = 0;
+  window.addEventListener("scroll", () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    const menuContainer = document.getElementById("menu-container");
+    const buttons = document.querySelectorAll("#menu-container button");
+    if (st > lastScrollTop) {
+      menuContainer.style.opacity = "0"; // Fade out menu on scroll down
+      buttons.forEach(button => button.classList.add("faded")); // Add faded class
+    } else {
+      menuContainer.style.opacity = "1"; // Fade in menu on scroll up
+      buttons.forEach(button => button.classList.remove("faded")); // Remove faded class
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  });
+
   const newsData = [
     {
         title: "New JavaScript Framework Released",

@@ -26,6 +26,23 @@
     padding: 0.75rem 1.5rem; /* Increased padding */
 }
 
+/* Add media query for mobile devices */
+@media (max-width: 768px) {
+    #menu-container.moving-up button.main-button {
+        font-size: 1rem; /* Reduced for mobile */
+        padding: 0.5rem 1.5rem; /* Reduced padding for mobile */
+    }
+}
+
+#menu-container button {
+    transition: opacity 0.3s ease;
+}
+
+#menu-container button.faded {
+    pointer-events: none; /* Disable clicks */
+    opacity: 0; /* Make buttons fully invisible */
+}
+
 #content {
     margin-top: 160px;
     padding-top: 2rem;
